@@ -1,0 +1,54 @@
+Quản lý thông tin nhân viên
+Thêm/Sửa/Xóa thông tin nhân viên: Quản lý các thông tin cơ bản như mã nhân viên, tên, chức vụ, hệ số lương.
+Tính toán lương cơ bản: Dựa trên hệ số lương và các khoản phụ cấp.
+Tính toán khấu trừ: Tự động tính toán các khoản khấu trừ như tiền thưởng, tiền phạt.
+2. Quản lý bảng lương hàng tháng
+Tạo bảng lương hàng tháng (toàn bộ): Tự động tạo bảng lương hàng tháng cho tất cả nhân viên.
+Tạo bảng lương cho từng nhân viên: Cho phép tạo bảng lương riêng lẻ cho mỗi nhân viên cụ thể.
+Gửi bảng lương: Gửi bảng lương xuất ra file Excel.
+Xem bảng lương cá nhân: Nhân viên có thể đăng nhập vào tài khoản cá nhân để xem bảng lương của họ.
+3. Quản lý thanh toán lương
+Duyệt thanh toán lương: Cung cấp tùy chọn duyệt thanh toán thủ công hoặc tự động.
+Trạng thái thanh toán: Theo dõi trạng thái thanh toán (đã thanh toán/chưa thanh toán).
+Lịch sử thanh toán: Lưu trữ và quản lý lịch sử thanh toán lương của nhân viên.
+4. Quản lý ngày nghỉ phép và làm thêm giờ
+Quản lý ngày nghỉ phép: Quản lý thông tin về ngày nghỉ phép của nhân viên.
+Tính toán lương làm thêm giờ: Tự động tính toán lương cho các giờ làm!
+5. Chức năng cho nhân viên
+Đăng nhập cá nhân: Nhân viên có thể đăng nhập để xem bảng lương cá nhân.
+Yêu cầu nghỉ phép/ứng lương: Cho phép nhân viên gửi yêu cầu nghỉ phép hoặc ứng lương trực tiếp thông qua hệ thống.
+src/
+└───main/
+    ├───java/
+    │   └───com/
+    │       └───vintech/
+    │           └───salary_management/
+    │               ├───controller/                          # REST Controllers
+    │               │   ├── EmployeeController.java          # Quản lý nhân viên
+    │               │   ├── PayrollController.java           # Quản lý bảng lương
+    │               │   ├── PaymentController.java           # Quản lý thanh toán
+    │               │   └── AuthController.java              # Đăng nhập và yêu cầu nghỉ phép/ứng lương
+    │               ├───model/                               # Entities
+    │               │   ├── Employee.java                    # Mô hình nhân viên
+    │               │   ├── Payroll.java                     # Mô hình bảng lương
+    │               │   ├── Payment.java                     # Mô hình thanh toán
+    │               │   ├── Leave.java                       # Mô hình nghỉ phép
+    │               │   └── Overtime.java                    # Mô hình làm thêm giờ
+    │               ├───repository/                          # Repositories
+    │               │   ├── EmployeeRepository.java
+    │               │   ├── PayrollRepository.java
+    │               │   ├── PaymentRepository.java
+    │               │   ├── LeaveRepository.java
+    │               │   └── OvertimeRepository.java
+    │               ├───service/                             # Business Logic
+    │               │   ├── EmployeeService.java
+    │               │   ├── PayrollService.java
+    │               │   ├── PaymentService.java
+    │               │   ├── LeaveService.java
+    │               │   └── OvertimeService.java
+    │               └───util/                                # Helper classes
+    │                   ├── SalaryCalculator.java            # Tính toán lương và khấu trừ
+    │                   └── OvertimeCalculator.java          # Tính toán lương làm thêm giờ
+    └───resources/
+        ├───application.properties                           # Cấu hình ứng dụng
+        └───data.sql                                         # Dữ liệu mẫu để khởi tạo
